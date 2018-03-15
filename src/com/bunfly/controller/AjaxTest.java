@@ -25,17 +25,17 @@ public class AjaxTest extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("utf-8");
-		String name = request.getParameter("username");
-		String time = request.getParameter("time");
+		String name = request.getParameter("name");
+		String time = request.getParameter("location");
 		Map<String,String> map = new HashMap<>();
-		map.put("name", "张三");
-		map.put("time", "1234567");
+		map.put("name", name);
+		map.put("time", time);
 		ObjectMapper maper = new ObjectMapper();
 		maper.writeValue(response.getWriter(), map);
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see 
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
